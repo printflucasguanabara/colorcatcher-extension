@@ -1,5 +1,4 @@
-console.log("content script injected rsrs")
-
+console.log("content script injected rsrs");
 
 chrome.runtime.onMessage.addListener((message, sender) => {
     if (message.from === "popup" && message.query === "eye_dropper_clicked") {
@@ -14,13 +13,13 @@ chrome.runtime.onMessage.addListener((message, sender) => {
                         chrome.storage.local.set({ "color_hex_code": [...resp.color_hex_code, result.sRGBHex] })
                     }
                     else {
-                        console.log("no")
+                        console.log("no");
                         chrome.storage.local.set({ "color_hex_code": [result.sRGBHex] })
                     }
                 })
             }).catch(e => {
-                console.log(e)
+                console.log(e);
             })
         }, 500);
     }
-})
+});
